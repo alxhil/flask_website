@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <div class="text-center">
+        <div class = "content-section">
+            <form method = "POST" action ="">
+                {{ form.hidden_tag() }}
+                <fieldset class="">
+                    <legend class="border-bottom border-left border-right">Login</legend>
+
+                    <dir class=""form-group>
+                        {{ form.email.label(class="") }}
+                        {% if form.email.errors %}
+                            {{ form.email(class="") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="") }}
+                        {% endif %}
+                    </dir>
+                    <dir class=""form-group>
+                        {{ form.password.label(class="") }}
+                        {% if form.password.errors %}
+                            {{ form.password(class="") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(class="") }}
+                        {% endif %}
+                    </dir>
+                    <div class="form-check">
+                        {{ form.remember(class="form-check-input") }}
+                        {{ form.remember.label(class="form-check-label") }}
+                    </div>
+
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+                <small class="text-muted ml-2">
+                    <a href="#">Forgot password</a>
+                </small>
+            </form>
+        </div>
+        <div class = "border-top pt-3">
+            <small class = "text-muted">
+                Need an account? <a class="ml-2" href="{{ url_for('register') }}">Register</a>
+            </small>
+        </div>
+        </div>
+</head>
+
+</html>
